@@ -68,7 +68,7 @@ pub fn build_ui(application: &gtk::Application) {
             raw = 2;
         } else if (7..=9).contains(&iterator) {
             raw = 3;
-        } else if &iterator == 0 {
+        } else if iterator == 0 {
             raw = 4;
         }
 
@@ -116,16 +116,16 @@ pub fn build_ui(application: &gtk::Application) {
     })
     );
 
-    equals_button.connect_clicked(
+    equals_bttn.connect_clicked(
         clone!(@strong entry, @strong operand => move |_| {
-       let get_entry = entry.next();
-       let entry_data: String = format!("{}", get_entry);
-       let result = entry_parser(entry_data.clone());
-       let entry_vew = format!("{} = {}", entry_data, result);
+      let get_entry = entry.text();
+      let entry_data: String = format!("{}", get_entry);
+      let result = entry_parser(entry_data.clone());
+      let entry_vew = format!("{} = {}", entry_data, result);
 
-       operand.set(false);
-       entry.set_text(&entry_vew);
-    })
+      operand.set(false);
+      entry.set_text(&entry_vew);
+  })
     );
 
     dot_button.connect_clicked(
