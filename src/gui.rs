@@ -116,7 +116,7 @@ pub fn build_ui(application: &gtk::Application) {
     })
     );
 
-    equals_bttn.connect_clicked(
+    equals_button.connect_clicked(
         clone!(@strong entry, @strong operand => move |_| {
       let get_entry = entry.text();
       let entry_data: String = format!("{}", get_entry);
